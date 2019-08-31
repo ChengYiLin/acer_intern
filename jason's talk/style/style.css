@@ -1,0 +1,456 @@
+.box {
+    background: aqua;
+    height: 10vh;
+}
+
+.box-2 {
+    background: plum;
+    padding: 30px;
+}
+
+/*CSS Reset
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* ============================================================= */
+
+/* global */
+
+body {
+    line-height: 1;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+a {
+    color: rgb(30, 39, 39);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(30, 39, 39);
+    text-decoration: none;
+}
+
+/* nav bar */
+
+.brand {
+    height: 48px;
+    width: 96px;
+    background-image: url("../img/acer_logo.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Nav document */
+
+.document_bar {
+    height: 50px;
+    background-color: rgb(31, 31, 31);
+    padding: 10px 0px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+.document_content {
+    /* background-color: green; */
+    padding: 0 10px;
+    max-width: 80vw;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.document_title {
+    float: left;
+}
+
+.document_title a {
+    font-size: 1.5em;
+    display: inline-block;
+    line-height: 30px;
+    text-decoration: none;
+    color: #F1F3F4;
+    font-weight: bolder;
+}
+
+.document_menu {
+    float: right;
+}
+
+.document_menu li {
+    float: left;
+    margin: 10px;
+    font-weight: bolder;
+}
+
+.document_menu li a {
+    color: #F1F3F4;
+}
+
+.document_menu li a:hover {
+    color: #42B3CF;
+}
+
+.document_menu ul {
+    float: left;
+    margin-right: 20px;
+}
+
+.document_menu .buy_it {
+    font-weight: bolder;
+    font-size: 90%;
+    display: inline-block;
+    line-height: 30px;
+    padding: 0 15px;
+    border: 2px solid rgb(66, 184, 221);
+    color: rgb(66, 184, 221)
+}
+
+.document_menu .buy_it:hover {
+    color: #F1F3F4;
+    background: rgb(66, 184, 221);
+}
+
+/* choosed bar  */
+
+.choosed_bar {
+    background-color: rgb(41, 39, 39);
+    padding: 1px 0px;
+}
+
+.choosed_bar_title {
+    float: left;
+}
+
+.choosed_bar_title a {
+    font-size: .7em;
+    display: inline-block;
+    line-height: 30px;
+    text-decoration: none;
+    color: rgba(241, 243, 244, 0.582);
+    font-weight: bolder;
+}
+
+/* product 3d view */
+
+.product_3d {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 50px;
+    width: 100%;
+}
+
+.product_3d iframe {
+    width: 100%;
+    height: 500px;
+}
+
+/* product 2d view */
+
+.product_2d {
+    height: 130px;
+    width: 100%;
+    background: #42B3CF;
+}
+
+/* product content */
+
+.product-content h2 {
+    font-weight: bolder;
+    font-size: 2em
+}
+
+.keypoint {
+    margin: 8px 25px;
+    list-style-type: square;
+}
+
+.keypoint li {
+    line-height: 25px;
+}
+
+.keypoint span {
+    color: #00AECD;
+    font-weight: bolder;
+}
+
+/* product content menu*/
+
+.form-group label {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form-group p, li {
+    color: rgb(97, 97, 97);
+}
+
+.form-group ul {
+    margin-left: 25px;
+    list-style-type: disc;
+}
+
+.form-group li {
+    line-height: 20px;
+}
+
+/* buy more */
+
+.buy_more h2 {
+    font-weight: bolder;
+    font-size: 1.3em;
+}
+
+.buy_more .buy_more_name {
+    font-weight: bold;
+}
+
+.buy_more img {
+    object-fit: cover;
+}
+
+.buy_more .card-text {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 10px;
+}
+
+.buy_more button{
+    background: transparent;
+    color: rgb(3, 136, 160);
+    font-weight: bolder;
+    border: 1px solid rgb(3, 136, 160);
+}
+
+.buy_more button:hover{
+    background:  rgb(3, 136, 160);
+    color: white;
+    font-weight: bolder;
+    border: 1px solid rgb(3, 136, 160);
+}
+
+.buy_more .price{
+    font-size: 1.4em;
+    font-weight: bolder;
+    color: rgb(205, 24, 0);
+}
+
+/* Comment */
+.comment{
+    margin-bottom: 10vh;
+}
+
+.user-comment {
+    margin-bottom: 30px;
+}
+
+.comment h2 {
+    font-weight: bolder;
+    font-size: 1.3em;
+}
+
+.user-comment .content {
+    width: 100%;
+    padding: 20px 50px;
+    background: #f0efef;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.user-comment .content h4 {
+    font-weight: bold;
+}
+
+.user-comment .content .star {
+    color: rgb(224, 174, 46);
+    padding: 3px 0;
+}
+
+.user-comment .content h4 .editor {
+    color: #00AECD;
+    font-weight: normal;
+}
+
+.user-comment .content hr {
+    margin: 7px 0;
+}
+
+.user-comment .content .suggest {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+/* footer */
+
+.footer {
+    background: #F0EFEF;
+    padding: 3vh;
+    margin-bottom: 100px;
+}
+
+.footer .icon {
+    font-size: 1.6em;
+}
+
+.footer .icon a {
+    margin: 0 5px;
+}
+
+/* fixed bottom */
+
+.fixed-bottom {
+    height: 100px;
+    background: #F8F9FA;
+}
+
+.fixed-bottom .small_title h5 {
+    font-size: 1.2em;
+    font-weight: bolder;
+    padding: 10px 0;
+}
+
+.fixed-bottom .take_myself a {
+    color: #00AECD;
+}
+
+.fixed-bottom .price h5 {
+    font-size: 1.8em;
+    font-weight: bolder;
+    padding: 20px 25px;
+    display: block;
+    float: left;
+}
+
+.fixed-bottom .home_delivery span {
+    color: #00AECD;
+    font-weight: bold;
+}
+
+.fixed-bottom .price a {
+    display: block;
+    float: left;
+    font-size: 1.2em;
+    font-weight: bolder;
+    padding: 10px 20px;
+    margin: 15px 0;
+    background-image: linear-gradient(to right bottom, #42b3cf, #4dbfdb, #57cae7, #62d6f3, #6ce2ff);
+    color: rgb(255, 255, 255);
+    border-radius: 80px;
+}
+
+/* website assistant */
+
+.assistant {
+    width: 150px;
+    height: 60px;
+    padding: 0 5px;
+    position: fixed;
+    bottom: 100px;
+    right: 0;
+}
+
+.assistant button {
+    background: none;
+    border: none;
+}
+
+.assistant button img {
+    display: block;
+    width: 40%;
+    height: 100%;
+    object-fit: cover;
+    float: left;
+}
+
+.assistant button .text {
+    display: block;
+    height: 50px;
+    padding: 15px 5px;
+    float: left;
+    border: 1px solid #83B81A;
+    border-radius: 50px;
+    background: #83B81A;
+    color: rgb(35, 35, 36);
+    font-weight: bold;
+}
+
+.chatbox {
+    width: 300px;
+    height: 350px;
+    position: fixed;
+    bottom: 165px;
+    right: 0;
+    background: #F0EFEF;
+    border: 1px solid rgb(170, 170, 170);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chatbox .title {
+    background: #F8F9FA;
+    padding: 5px 5px;
+}
+
+.chatbox .title .name {
+    font-weight: bolder;
+}
+
+.chatbox .title button {
+    background: none;
+    border: none;
+}
+
+.chatbox .thankyou {
+    text-align: center;
+    font-size: .9em;
+    line-height: 1.2em;
+}
+
+.chatbox .list_box {
+    background: #F8F9FA;
+    padding: 5px;
+}
+
+.chatbox .list_box button {
+    background: none;
+    border: none;
+}

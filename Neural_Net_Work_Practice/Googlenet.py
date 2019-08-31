@@ -3,7 +3,7 @@ import keras
 from keras.datasets import mnist
 from keras.utils import np_utils
 from keras.models import Sequential
-from keras.layers import Dense, Activation, Conv2D, MaxPooling2D, Flatten,Dropout,BatchNormalization,AveragePooling2D,concatenate,Input, concatenate
+from keras.layers import Dense, Activation, Conv2D, MaxPooling2D, Flatten,Dropout,BatchNormalization,AveragePooling2D,Input, concatenate
 from keras.models import Model,load_model
 from keras.optimizers import Adam
 
@@ -75,6 +75,7 @@ def InceptionV1(width, height, depth, classes):
     x = MaxPooling2D(pool_size=(3, 3), strides=(2, 2), padding='same')(x)  # 14x14x480
 
     x = Inception(x, [(192,), (96, 208), (16, 48), (64,)])  # Inception 4a 14x14x512
+
     x = Inception(x, [(160,), (112, 224), (24, 64), (64,)])  # Inception 4a 14x14x512
     x = Inception(x, [(128,), (128, 256), (24, 64), (64,)])  # Inception 4a 14x14x512
     x = Inception(x, [(112,), (144, 288), (32, 64), (64,)])  # Inception 4a 14x14x528

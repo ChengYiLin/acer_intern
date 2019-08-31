@@ -3,29 +3,33 @@ import keras
 from keras.datasets import mnist
 from keras.utils import np_utils
 from keras.models import Sequential
-from keras.layers import add,Dense, Activation, Conv2D, MaxPooling2D, Flatten,Dropout,BatchNormalization,AveragePooling2D,GlobalAveragePooling2D,concatenate,Input, concatenate
-from keras.models import Model,load_model
+from keras.layers import add, Dense, Activation, Conv2D, MaxPooling2D, Flatten, Dropout, BatchNormalization, \
+    AveragePooling2D, GlobalAveragePooling2D, concatenate, Input, concatenate
+from keras.models import Model, load_model
 from keras.optimizers import Adam
 
 # Load oxflower17 dataset
 import tflearn.datasets.oxflower17 as oxflower17
 from sklearn.model_selection import train_test_split
+
 x, y = oxflower17.load_data(one_hot=True)
 
 # Split train and test data
-X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2,shuffle = True)
+X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, shuffle=True)
 
 # Data augumentation with Keras tools
 from keras.preprocessing.image import ImageDataGenerator
+
 img_gen = ImageDataGenerator(
-    rescale=1./255,
+    rescale=1. / 255,
     shear_range=0.2,
     zoom_range=0.2,
     horizontal_flip=True
-    )
+)
+
 
 # Define convolution with batch normalization
-def Conv2d_BN(x, nb_filter, kernel_size, padding='same', strides=(1,1), name=None):
+def Conv2d_BN(x, nb_filter, kernel_size, padding='same', strides=(1, 1), name=None):
     if name is not None:
         bn_name = name + '_bn'
         conv_name = name + '_conv'
@@ -33,8 +37,8 @@ def Conv2d_BN(x, nb_filter, kernel_size, padding='same', strides=(1,1), name=Non
         bn_name = None
         conv_name = None
 
-    x = Conv2D(nb_filter,kernel_size,padding=padding,strides=strides,activation='relu',name=conv_name)(x)
-    x = BatchNormalization(axis=3,name=bn_name)(x)
+    x = Conv2D(nb_filter, kernel_size, padding=padding, strides=strides, activation='relu', name=conv_name)(x)
+    x = BatchNormalization(axis=3, name=bn_name)(x)
     return x
 
 
@@ -93,6 +97,7 @@ def ResNet34(width, height, depth, classes):
     model = Model(input=Img, output=x)
     return model
 
+
 ResNet34_model = ResNet34(224,224,3,17)
 ResNet34_model.summary()
 
@@ -102,6 +107,7 @@ ResNet34_model.fit_generator(img_gen.flow(X_train*255, y_train, batch_size = 16)
 # Save the model
 ResNet34_model.save('model/Resnet_34.h5')
 
+ResNet34_model = load_model("./model/Resnet_34.h5")
 # evaluate the model
 scores = ResNet34_model.evaluate(X_test, y_test, verbose=0)
-print("%s: %.2f%%" % (ResNet34_model.metrics_names[1], scores[1]*100))
+print("%s: %.2f%%" % (ResNet34_model.metrics_names[1], scores[1] * 100))
